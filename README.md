@@ -15,6 +15,8 @@ The problem with most job sites is that they're not very smart. They see "JavaSc
 - It Tells You Why – Every recommendation comes with a short "Match Story", explaining why the role fits you.
 
 
+![Separator](.github/assets/separator.png)
+
 ## 🛠️ How We Built It (Hackathon Story)
 
 We wanted to build something powerful yet practical during the hackathon.
@@ -23,9 +25,11 @@ We wanted to build something powerful yet practical during the hackathon.
 - Backend: Python + Flask (simple and fast for building APIs).
 - Frontend: Vanilla HTML, CSS, JavaScript (lightweight and responsive).
 - AI Magic:
-  - Google Gemini 1.5 Flash → Reads resumes, builds profiles, and generates personalized Match Stories.
-  - Sentence-Transformers → Local lightweight model for semantic matching (e.g., understanding React ≈ Web Development).
+  - Google Gemini 1.5 Flash → Reads resumes, builds profiles, and generates personalized Match Stories.
+  - Sentence-Transformers → Local lightweight model for semantic matching (e.g., understanding React ≈ Web Development).
 - Data: Pandas for handling job listings in-memory.
+
+![Separator](.github/assets/separator.png)
 
 ## ⚙️ Run It Yourself
 
@@ -38,12 +42,12 @@ We wanted to build something powerful yet practical during the hackathon.
 
 credx-ai/
 |-- data/
-|   |-- jobs.csv
+|  	|-- jobs.csv
 |-- static/
-|   |-- script.js
-|   |-- style.css
+|  	|-- script.js
+|  	|-- style.css
 |-- templates/
-|   |-- index.html
+|  	|-- index.html
 |-- app.py
 |-- data_handler.py
 |-- matching_engine.py
@@ -54,33 +58,35 @@ credx-ai/
 
 
 ### 🔧 Installation
-1.  **Clone or Create Project Folder**
+1.  **Clone or Create Project Folder**
 
-    cd credx-ai
+    cd credx-ai
 
-2.  **Create Virtual Environment**
-  
-    python -m venv venv
+2.  **Create Virtual Environment**
+ 	
+  	python -m venv venv
 
-    Activate it:
-    - On Windows: `venv\Scripts\activate`
-    - On macOS/Linux: `source venv/bin/activate`
+  	Activate it:
+  	- On Windows: `venv\Scripts\activate`
+  	- On macOS/Linux: `source venv/bin/activate`
 
-3.  **Install Dependencies**
+3.  **Install Dependencies**
 
-    pip install Flask Flask-Cors pandas "sentence-transformers>=2.2.0" torch torchvision torchaudio PyMuPDF "google-generativeai>=0.3.0"
-  
-    *Note: The first run will download the Sentence-Transformers model (grab a coffee ☕).*
+  	pip install Flask Flask-Cors pandas "sentence-transformers>=2.2.0" torch torchvision torchaudio PyMuPDF "google-generativeai>=0.3.0"
+ 	
+  	*Note: The first run will download the Sentence-Transformers model (grab a coffee ☕).*
 
-4.  **Add API Key**
-    - Open `app.py`
-    - Replace the placeholder: `API_KEY = "YOUR_GEMINI_API_KEY"`
+4.  **Add API Key**
+  	- Open `app.py`
+  	- Replace the placeholder: `API_KEY = "YOUR_GEMINI_API_KEY"`
 
-5.  **Run the Server**
+5.  **Run the Server**
 
-    python app.py
-    The server will start at: http://127.0.0.1:5000
+  	python app.py
+  	The server will start at: http://127.0.0.1:5000
 
+
+![Separator](.github/assets/separator.png)
 
 ## 📖 How to Use
 
@@ -98,6 +104,8 @@ credx-ai/
 - A personalized job list appears with short AI-written Match Stories.
 
 
+![Separator](.github/assets/separator.png)
+
 ## 🏆 Why CredX AI?
 
 - Smarter job matching.
@@ -105,18 +113,26 @@ credx-ai/
 - Faster, easier, and more human job search.
 
 
+![Separator](.github/assets/separator.png)
+
 ## 💡 Future Improvements
 
 - Real-time job scraping from popular job boards.
 - More granular cultural and work-style matching.
 - Mobile-first redesign for accessibility.
 
+![Separator](.github/assets/separator.png)
+
 ## Output:
 <img width="1902" height="906" alt="Screenshot 2025-08-16 195642" src="https://github.com/user-attachments/assets/5a78ae2a-3cd0-4c20-aaa0-56c712fcc3c7" />
 
-## Demo Link  
+![Separator](.github/assets/separator.png)
+
+## Demo Link 	
 [View Demo](https://drive.google.com/file/d/1PwaxuSsKrxdTDLMEYcITFjXXBiCwXuCN/view?usp=sharing)
 
+
+![Separator](.github/assets/separator.png)
 
 ## 🤝 Contributing
 
