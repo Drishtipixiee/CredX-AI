@@ -79,7 +79,7 @@ credx-ai/
     - Open `app.py`
     - Replace the placeholder: `API_KEY = "YOUR_GEMINI_API_KEY"`
 
-5.V**Run the Server**
+5.  **Run the Server**
 
     python app.py
     The server will start at: http://127.0.0.1:5000
