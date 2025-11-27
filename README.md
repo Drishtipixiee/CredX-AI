@@ -2,15 +2,15 @@
 
 Ever felt like you're shouting into the void when applying for jobs? You spend hours polishing your resume and sending it out, only to get back a flood of irrelevant listings. We've been there, and we thought: "There has to be a better way."
 
-That’s why we built CredX AI — a hackathon project designed to make the job search feel less like a chore and more like a conversation. Instead of just matching keywords, our engine tries to understand who you are and what you really want in your next role.
+That's why we built CredX AI — a hackathon project designed to make the job search feel less like a chore and more like a conversation. Instead of just matching keywords, our engine tries to understand who you are and what you really want in your next role.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 🚀 The Big Idea
 
-The problem with most job sites is that they're not very smart. They see "JavaScript" on your resume and show you every single job that mentions it. They don’t know if you’re a seasoned pro or just starting out, what you want to earn, or what kind of company culture you’d thrive in.
+The problem with most job sites is that they're not very smart. They see "JavaScript" on your resume and show you every single job that mentions it. They don't know if you're a seasoned pro or just starting out, what you want to earn, or what kind of company culture you'd thrive in.
 
-**Here’s how CredX AI is different:**
+**Here's how CredX AI is different:**
 - It Actually Reads Your Resume – Upload your resume, and our AI instantly gets a sense of your skills and experience to build your profile. No more endless forms.
 - You're in the Driver's Seat – You decide what matters most (salary, job title, location, etc.) by adjusting sliders.
 - It Understands What You Mean – Knows that a "Lead Product Designer" is relevant to "UI/UX Design" skills, going beyond simple keyword matching.
@@ -26,8 +26,8 @@ We wanted to build something powerful yet practical during the hackathon.
 - Backend: Python + Flask (simple and fast for building APIs).
 - Frontend: Vanilla HTML, CSS, JavaScript (lightweight and responsive).
 - AI Magic:
-  - Google Gemini 1.5 Flash → Reads resumes, builds profiles, and generates personalized Match Stories.
-  - Sentence-Transformers → Local lightweight model for semantic matching (e.g., understanding React ≈ Web Development).
+  - Google Gemini 1.5 Flash → Reads resumes, builds profiles, and generates personalized Match Stories.
+  - Sentence-Transformers → Local lightweight model for semantic matching (e.g., understanding React ≈ Web Development).
 - Data: Pandas for handling job listings in-memory.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
@@ -41,14 +41,15 @@ We wanted to build something powerful yet practical during the hackathon.
 
 ### 📂 Project Structure
 
+```
 credx-ai/
 |-- data/
-|  	|-- jobs.csv
+|   |-- jobs.csv
 |-- static/
-|  	|-- script.js
-|  	|-- style.css
+|   |-- script.js
+|   |-- style.css
 |-- templates/
-|  	|-- index.html
+|   |-- index.html
 |-- app.py
 |-- data_handler.py
 |-- matching_engine.py
@@ -56,35 +57,54 @@ credx-ai/
 |-- semantic_matcher.py
 |-- skills_scorer.py
 |-- story_generator.py
-
+|-- pyproject.toml
+```
 
 ### 🔧 Installation
-1.  **Clone or Create Project Folder**
 
-  	cd credx-ai
+1. **Clone or Create Project Folder**
 
-2.  **Create Virtual Environment**
- 	
-  	python -m venv venv
+   ```bash
+   git clone https://github.com/nitinc264/CredX-AI.git
+   cd credx-ai
+   ```
 
-  	Activate it:
-  	- On Windows: `venv\Scripts\activate`
-  	- On macOS/Linux: `source venv/bin/activate`
+2. **Create Virtual Environment**
+ 	
+   ```bash
+   python -m venv venv
+   ```
 
-3.s**Install Dependencies**
+   Activate it:
+   - On Windows: `venv\Scripts\activate`
+   - On macOS/Linux: `source venv/bin/activate`
 
-  	pip install Flask Flask-Cors pandas "sentence-transformers>=2.2.0" torch torchvision torchaudio PyMuPDF "google-generativeai>=0.3.0"
- 	
-  	*Note: The first run will download the Sentence-Transformers model (grab a coffee ☕).*
+3. **Install Dependencies**
 
-4.s**Add API Key**
-  	- Open `app.py`
-  	- Replace the placeholder: `API_KEY = "YOUR_GEMINI_API_KEY"`
+   ```bash
+   pip install -e .
+   ```
+   
+   This will install all required dependencies from `pyproject.toml`.
+ 	
+   *Note: The first run will download the Sentence-Transformers model (grab a coffee ☕).*
 
-5.s**Run the Server**
+   **For development dependencies** (optional):
+   ```bash
+   pip install -e ".[dev]"
+   ```
 
-  	python app.py
-  	The server will start at: http://127.0.0.1:5000
+4. **Add API Key**
+   - Open `app.py`
+   - Replace the placeholder: `API_KEY = "YOUR_GEMINI_API_KEY"`
+
+5. **Run the Server**
+
+   ```bash
+   python app.py
+   ```
+   
+   The server will start at: http://127.0.0.1:5000
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
@@ -111,7 +131,7 @@ credx-ai/
 - Personalized insights.
 - Faster, easier, and more human job search.
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="1g00%">
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 💡 Future Improvements
 
@@ -138,10 +158,12 @@ credx-ai/
 
 ## 🤝 Contributing
 
-We’d love your feedback and contributions! Feel free to fork this repo, open issues, or submit pull requests.
+We'd love your feedback and contributions! Feel free to fork this repo, open issues, or submit pull requests.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
 ## 📜 License
 
 This project was built for a hackathon — free to use for educational and experimental purposes.
+
+
