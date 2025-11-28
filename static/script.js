@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('preferences-form');
   const resultsArea = document.getElementById('results-area');
   const submitBtn = document.getElementById('submit-btn');
+  const clearBtn = document.getElementById('clear-btn');
+  const formStatus = document.getElementById('form-status');
   const normalizeToggle = document.getElementById('normalize-toggle');
   const accentSelect = document.getElementById('accent-select');
   const sidebarWidthSlider = document.getElementById('sidebar-width');
@@ -91,6 +93,71 @@ document.addEventListener('DOMContentLoaded', () => {
           window.feather.replace();
       }
   };
+  const handleClearForm = () => {
+    const confirmClear = confirm('Are you sure you want to clear all form fields?');
+    if (!confirmClear) return;
+    const originalHTML = clearBtn.innerHTML;
+    clearBtn.disabled = true;
+    clearBtn.innerHTML = '<i data-feather="loader" class="spin"></i> Clearing...';
+    replaceIcons();
+    setTimeout(() => {
+
+      document.getElementById('skills').value = '';
+      document.getElementById('titles').value = '';
+      document.getElementById('locations').value = '';
+      document.getElementById('industries').value = '';
+    
+      document.getElementById('min_salary').value = '170000';     
+     
+      resumeUploadInput.value = '';
+      resumeStatus.textContent = '';
+      
+      document.getElementById('w_skills').value = 30;
+      document.getElementById('w_title').value = 20;
+      document.getElementById('w_location').value = 15;
+      document.getElementById('w_salary').value = 10;
+      document.getElementById('w_industry').value = 10;
+    
+      document.querySelectorAll('.weight-enable-chk').forEach(checkbox => {
+        checkbox.checked = true;
+        const targetId = checkbox.dataset.target;
+        const slider = document.getElementById(targetId);
+        if (slider) slider.disabled = false;
+      });
+      
+      normalizeToggle.checked = false;
+      syncDisplays();
+    
+      resultsArea.innerHTML = `
+        <div class="placeholder">
+          <i data-feather="briefcase"></i>
+          <p>Your personalized job recommendations will appear here.</p>
+          <small>Upload a resume or complete your profile to begin.</small>
+        </div>
+      `;
+      currentRecommendations = [];
+      currentPreferences = {};
+    
+      clearBtn.disabled = false;
+      clearBtn.innerHTML = originalHTML;
+      
+      if (formStatus) {
+        formStatus.textContent = '✓ Form cleared successfully';
+        formStatus.style.color = 'var(--accent-3)';
+        setTimeout(() => { formStatus.textContent = ''; }, 3000);
+      }
+      
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) {
+        sidebar.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+      replaceIcons();
+      
+      console.log('✓ Form cleared successfully');
+    }, 300);
+  };
 
   const init = () => {
     document.querySelectorAll('.weight-enable-chk').forEach(chk => {
@@ -118,6 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resumeUploadBtn.addEventListener('click', () => resumeUploadInput.click());
     resumeUploadInput.addEventListener('change', handleResumeUpload);
+    
+    // Add Clear Button Event Listener
+    if (clearBtn) {
+      clearBtn.addEventListener('click', handleClearForm);
+    }
 
     applyAccent(accentSelect.value);
     applySidebarWidth(sidebarWidthSlider.value);
@@ -126,6 +198,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   init();
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      if (clearBtn && !clearBtn.disabled) {
+        clearBtn.click();
+      }
+    }
+  });
   
   async function handleResumeUpload(event) {
       const file = event.target.files[0];
@@ -331,3 +412,5 @@ document.addEventListener('DOMContentLoaded', () => {
       return tableHTML;
   }
 });
+
+
